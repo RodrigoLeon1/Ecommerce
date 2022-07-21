@@ -1,12 +1,16 @@
-import { useState } from "react";
-import { Test } from "@/components/Test";
+import { ThemeProvider } from '@mui/material/styles';
+import AppContainer from './components/styled-components/AppContainer';
+import AppRoutes from './routes/AppRoutes';
+import AppTheme from './utilities/Theme/AppTheme';
 
-function App() {
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <Test />
-    </div>
+    <ThemeProvider theme={AppTheme}>
+      <AppContainer>
+        <AppRoutes />
+      </AppContainer>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
