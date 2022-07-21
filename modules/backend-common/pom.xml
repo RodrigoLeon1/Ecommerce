@@ -11,9 +11,8 @@
         <relativePath>../..</relativePath>
     </parent>
 
-    <groupId>com.rodrigoleon</groupId>
     <artifactId>backend-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
+    <name>backend-common</name>
 
 </project>
