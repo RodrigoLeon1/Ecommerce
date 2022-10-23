@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "products")
 public class Product extends Audit {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
