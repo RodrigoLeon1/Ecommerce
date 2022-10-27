@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.time.Instant;
 
 @Getter
@@ -38,5 +40,10 @@ public class ApiResponse<T> {
 
     public static <T> ResponseEntity<ApiResponse<T>> withError(String errorMessage, ErrorCodes errorCode) {
         return ResponseEntity.ok(new ApiResponse<>(errorMessage, errorCode));
+    }
+
+    public static <T> ResponseEntity<ApiResponse<T>> withSuccessCreation(T content, String uri) {
+        URI newURI = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path(uri).toUriString());
+        return ResponseEntity.created(newURI).body(new ApiResponse<>(content));
     }
 }

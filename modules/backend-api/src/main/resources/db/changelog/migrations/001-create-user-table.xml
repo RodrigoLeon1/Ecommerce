@@ -23,6 +23,18 @@
 
             <column name="password" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
+
+            <!--   Common attributes   -->
+            <column name="external_id" type="VARCHAR(64)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="disabled_at" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
